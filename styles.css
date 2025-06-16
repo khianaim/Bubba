@@ -1,0 +1,436 @@
+@import url("https://fonts.cdnfonts.com/css/pp-neue-montreal");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "PP Neue Montreal", sans-serif;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.125;
+  letter-spacing: -0.03rem;
+}
+
+p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  background-color: #e0dfdf;
+  color: #0d0d0d;
+  overflow: hidden;
+}
+
+.intro,
+.outro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d0d0d;
+  color: #e0dfdf;
+  padding: 2rem;
+}
+nav.nav {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* left | center | right */
+  align-items: center;
+  padding: 0.7rem 2rem;
+  z-index: 15;
+  width: 95%;
+  box-sizing: border-box;
+  gap: 1rem;
+  background-color: #f3f0f0e7;
+  backdrop-filter: blur(4px);
+  border-radius: 30px;
+}
+
+/* Logo on the left */
+nav.nav .logo-text {
+  color: black;
+  justify-self: start;
+  text-align: left;
+}
+
+nav.nav .logo-text h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Nav links in the center */
+nav.nav .nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-family: 'PP Neue Montreal', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: black;
+}
+
+nav.nav .nav-links a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+nav.nav .nav-links a:hover {
+  color: #555;
+}
+
+/* Social icons on the right */
+nav.nav .social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-self: end;
+}
+
+nav.nav .social-icons img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+
+nav.nav .social-icons img:hover {
+  filter: brightness(0.7) invert(1);
+}
+
+.intro-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;  
+  height: 20vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: black;
+  padding: 0.5rem 2rem; 
+  color: white;
+  font-weight: 200;
+  font-family: 'PP Neue Montreal', sans-serif;
+  font-size: 1.4rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  z-index: 10;
+  user-select: none;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.footer-item{
+  padding-top: 30px;
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.intro {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-static {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Places it behind nav and content */
+  width: 100%;
+  height: 100%;
+}
+
+.hero-static img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.hero-image.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.hero-image.next {
+  z-index: 1;
+}
+
+/* Nav Dots */
+.nav-dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 3;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+
+.overlay-text {
+  position: absolute;
+  bottom: 3rem;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #f3f0f0;;
+  z-index: 2;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  max-width: 90%;
+}
+
+.overlay-text h2 {
+  font-size: 3.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-family: 'PP Neue Montreal', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;  /* Prevent line breaks */
+
+}
+
+.overlay-text p {
+  left: 45%;
+  transform: translateX(-35%);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.model-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.header-1 {
+  position: relative;
+  width: 205vw;
+  height: 100svh;
+  color: #0d0d0d;
+  transform: translateX(0%);
+}
+
+.header-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 205vw;
+  height: 100svh;
+  color: #e0dfdf;
+  transform: translateX(100%);
+  z-index: 2;
+}
+
+.header-1,
+.header-2 {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.header-1 h1,
+.header-2 h1 {
+  width: 100%;
+  font-size: 15vw;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.circular-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  clip-path: circle(0% at 50% 50%);
+}
+
+.tooltips {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75%;
+  display: flex;
+  gap: 15rem;
+}
+
+.tooltip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #e0dfdf;
+}
+
+/* .tooltip:nth-child(2) {
+  justify-content: flex-end;
+  align-items: flex-end;
+} */
+
+.tooltip .divider {
+  position: relative;
+  width: 90%;
+  height: 1px;
+  background-color: #5f5f5f;
+  margin: 0.5rem 0;
+  transform: scaleX(0%);
+}
+
+.tooltip:nth-child(1) .divider {
+  transform-origin: right center;
+}
+
+/* .tooltip:nth-child(2) .divider {
+  transform-origin: left center;
+} */
+
+.tooltip:nth-child(2) {
+  align-items: flex-end; /* Align content (icon, title, etc.) to the right */
+}
+
+.tooltip:nth-child(2) .divider {
+  align-self: flex-end;        /* Align the divider to the right within the tooltip */
+  width: 73%;                  /* Make the divider shorter */
+  transform-origin: left center;
+}
+
+.tooltip .icon {
+  font-size: 2.5rem;
+  overflow: hidden;
+}
+
+.tooltip .description {
+  color: #5f5f5f;
+}
+
+.tooltip:nth-child(2) .icon,
+.tooltip:nth-child(2) .title,
+.tooltip .description {
+  width: 70%;
+}
+
+.header-1 h1 .char,
+.tooltip .title .line,
+.tooltip .description .line {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.header-1 h1 .char > span,
+.tooltip .icon ion-icon,
+.tooltip .title .line > span,
+.tooltip .description .line > span {
+  position: relative;
+  display: block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  h2,
+  .tooltip .icon {
+    font-size: 1.5rem;
+  }
+
+  .tooltips {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .tooltip {
+    width: 85%;
+  }
+
+  .tooltip:nth-child(2) {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .tooltip .divider {
+    width: 70%;
+  }
+
+  .tooltip:nth-child(2) .divider {
+    transform-origin: right center;
+  }
+
+  .tooltip:nth-child(2) .icon,
+  .tooltip:nth-child(2) .title {
+    width: 100%;
+  }
+}
